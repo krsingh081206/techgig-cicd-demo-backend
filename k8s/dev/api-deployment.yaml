@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: node-deployment
+  namespace: dev
+  labels:
+    app: node-deployment
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-pod
+
+  template:
+    metadata:
+      name: node-pod
+      labels:
+        app: node-pod
+
+    spec:
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: "topology.kubernetes.io/zone"
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app: node-pod
+      containers:
+        - name: node-container
+          image: backendvm
+          resources:
+            requests:
+              memory: "128Mi"  
+              cpu: "250m"     
+            limits:
+              memory: "256Mi" 
+              cpu: "500m"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: "3000"  
+          envFrom:
+            - secretRef:
+                name: api-backend-secret-config
+            - configMapRef:
+                name: api-backend-config          

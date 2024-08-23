@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
-dotenv.config();
+//import dotenv from 'dotenv';
+//dotenv.config();
 
 const ISSUER = process.env.ISSUER;
 const SPA_CLIENT_ID = process.env.SPA_CLIENT_ID;
@@ -32,8 +32,8 @@ const config = {
 			acquire: parseInt(process.env.DB_POOL_ACQUIRE) || 30000,
 			idle: parseInt(process.env.DB_POOL_IDLE) || 60000
 		},
-		logging: process.env.DB_LOGGING,
-		tenant: process.env.TENANT
+		logging: process.env.DB_LOGGING
+		// tenant: process.env.TENANT
 	},
 	log: {
 		level: process.env.LOG_LEVEL,

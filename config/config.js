@@ -43,4 +43,6 @@ const config = {
 	forcefulExitTimeout: process.env.FORCEFUL_EXIT_TIMEOUT
 }
 
+console.log(`Config that used are: '${JSON.stringify(config)}'`);
+
 export default config;

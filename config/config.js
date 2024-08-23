@@ -1,5 +1,5 @@
-//import dotenv from 'dotenv';
-//dotenv.config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 const ISSUER = process.env.ISSUER;
 const SPA_CLIENT_ID = process.env.SPA_CLIENT_ID;
@@ -43,6 +43,6 @@ const config = {
 	forcefulExitTimeout: process.env.FORCEFUL_EXIT_TIMEOUT
 }
 
-console.log(`Config that used are: '${JSON.stringify(config)}'`);
+console.log(`Backend Config that used are: '${JSON.stringify(config)}'`);
 
 export default config;

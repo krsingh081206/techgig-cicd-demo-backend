@@ -43,8 +43,21 @@ steps:
       - $_REGION
       - --project
       - $_GKE_PROJECT
+
+  - name: gcr.io/cloud-builders/kubectl
+    id: CreateNamespace
+    args:
+      - apply
+      - -f
+      - k8s/common/
+    env:
+      - CLOUDSDK_COMPUTE_REGION=${_REGION}
+      - CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER}
+      - CLOUDSDK_CORE_PROJECT=${_GKE_PROJECT}
+
   - name: gcr.io/cloud-builders/kubectl
     id: Deploy Backend
+    waitFor: ['CreateNamespace']
     args:
       - apply
       - -f

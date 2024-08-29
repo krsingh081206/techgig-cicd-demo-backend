@@ -8,6 +8,7 @@ const oktaJwtVerifier = new OktaJwtVerifier({
 	testing: oktaConfig.resourceServer.oidc.testing
 });
 // Middleware to auth okta user
+// It ensures every request in the route and checks for valid token
 const oktaAuth = (req, res, next) => {
 	try {
 		const authHeader = req.headers.authorization || '';

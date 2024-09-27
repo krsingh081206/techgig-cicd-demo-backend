@@ -40,7 +40,8 @@ const config = {
 		logDatePattern: process.env.LOG_DATE_PATTERN,
 	},
 	readinessProbeDelay: process.env.READINESS_PROBE_DELAY,
-	forcefulExitTimeout: process.env.FORCEFUL_EXIT_TIMEOUT
+	forcefulExitTimeout: process.env.FORCEFUL_EXIT_TIMEOUT,
+	subscriberName: process.env.SUBSCRIBER_NAME
 }
 
 console.log(`Backend Config that used are: '${JSON.stringify(config)}'`);

@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import productRoutes from './routes/productRoute.js';
 import db from './models/dbConnection.js';
+import subscribeToEchoTopic from './receiver/pubsubsubscriber.js';
 
 const app = express();
 
@@ -30,6 +31,8 @@ app.get('/', (req, res) => {
 
 app.use('/api/product', productRoutes);
 
+// Subscribing to Echo Topic
+subscribeToEchoTopic();
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;

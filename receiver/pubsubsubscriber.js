@@ -1,4 +1,4 @@
-import { PubSub } from '@google-cloud/pubsub';
+ wiimport { PubSub } from '@google-cloud/pubsub';
 import LoggerModule, { logger } from '../utils/logger.js';
 import config from './../config/config.js';
 
@@ -21,7 +21,9 @@ export default async function subscribeToEchoTopic() {
         logger.info(LoggerModule.msg(module, `Received message: ${message.id}`));
         logger.info(LoggerModule.msg(module, `Data: ${message.data.toString()}`));
 
-
+        logger.info(LoggerModule.msg(module, `Simulate Delay of 3 seconds`));  
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        logger.info(LoggerModule.msg(module, `Promise resolved after 3 secs`));
         // Acknowledge the message
         message.ack();
     };

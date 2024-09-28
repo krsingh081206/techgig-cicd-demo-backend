@@ -16,7 +16,7 @@ export default async function subscribeToEchoTopic() {
     const subscription = pubsub.subscription(subscriptionName);
 
     // Create an event handler to process messages
-    const messageHandler = message => {
+    const messageHandler = async(message) => {
 
         logger.info(LoggerModule.msg(module, `Received message: ${message.id}`));
         logger.info(LoggerModule.msg(module, `Data: ${message.data.toString()}`));

@@ -1,4 +1,4 @@
- wiimport { PubSub } from '@google-cloud/pubsub';
+import { PubSub } from '@google-cloud/pubsub';
 import LoggerModule, { logger } from '../utils/logger.js';
 import config from './../config/config.js';
 

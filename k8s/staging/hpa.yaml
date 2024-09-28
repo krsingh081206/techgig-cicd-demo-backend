@@ -18,7 +18,7 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: node-deployment-HorizontalPodAutoscaler
+  name: node-deployment-hpa
   namespace: stage
 spec:
   minReplicas: 1

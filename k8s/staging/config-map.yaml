@@ -15,3 +15,4 @@ data:
   DB_POOL_IDLE: '10000'
   APP_NAME: 'cicd-demo-backend'
   DB_LOGGING: 'true'
+  SUBSCRIBER_NAME: 'echo-stage-sub'

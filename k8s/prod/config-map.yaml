@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: api-backend-config
+  namespace: production
+data:
+  ISSUER  : 'https://dev-68606227.okta.com/oauth2/default'
+  NODE_TLS_REJECT_UNAUTHORIZED  : '1'
+  LOG_LEVEL : 'info'
+  LOG_DATE_PATTERN: "YYYY-MM-DD"
+  DB_DIALECT: 'postgres'
+  DB_POOL_MIN: '0'
+  DB_POOL_MAX: '5'
+  DB_POOL_ACQUIRE: '30000'
+  DB_POOL_IDLE: '10000'
+  APP_NAME: 'cicd-demo-backend'
+  DB_LOGGING: 'true'
+  SUBSCRIBER_NAME: 'echo-production-sub'
